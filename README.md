@@ -97,7 +97,11 @@ public class LazyDoubleCheckSingleton {
 ```
 public class LazyInnerClassSingleton {
 
-    private void LazyInnerClassSingleton(){}
+    private void LazyInnerClassSingleton() throws Exception {
+            if(InnerClass.INSTANCE != null){
+                throw new Exception("不允许创建多个实例");
+            }
+     }
     //static 使用单例空间共享
     //final 防止类被重写
     public static final LazyInnerClassSingleton getInstance(){
@@ -111,3 +115,8 @@ public class LazyInnerClassSingleton {
 ```
 1. 使用LazyInnerClassSingleton时，内部类才会加载
 2. 不使用时，内部类不会加载
+
+### 破坏单例的行为
+
+- 反射破坏，强制生成新的对象
+- 序列化破坏单例
