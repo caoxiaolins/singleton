@@ -7,9 +7,11 @@ public class LazySimpleSingleton {
     private static LazySimpleSingleton lazySimpleSingleton;
 
     private void LazySimpleSingleton(){}
-    private static LazySimpleSingleton getInstance(){
+    public static LazySimpleSingleton getInstance(){
         if(lazySimpleSingleton == null){
-            return new LazySimpleSingleton();
+            //为了更好的体现线程安全问题
+            Thread.yield();
+            lazySimpleSingleton = new LazySimpleSingleton();
         }
         return lazySimpleSingleton;
     }
