@@ -116,6 +116,19 @@ public class LazyInnerClassSingleton {
 1. 使用LazyInnerClassSingleton时，内部类才会加载
 2. 不使用时，内部类不会加载
 
+### 注册式
+
+- 枚举
+- 容器
+
+#### 枚举
+
+- 不允许被反射
+- 饿汉式
+- 没有序列化问题
+
+#### 容器
+
 ### 破坏单例的行为
 
 - 反射破坏，强制生成新的对象
